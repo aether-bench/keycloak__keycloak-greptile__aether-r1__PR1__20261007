@@ -1,0 +1,4 @@
+{
+  "setup": "sudo apt-get update -qq && sudo apt-get install -y -qq openjdk-17-jdk-headless maven >/dev/null; timeout 480 mvn -q -B -DskipTests -Dmaven.javadoc.skip=true -pl services -am dependency:go-offline >/tmp/mvn-deps.log 2>&1 || echo 'maven dependency warm-up did not finish; javac and mvn are still available'; true",
+  "setup_on_boot": "true"
+}
